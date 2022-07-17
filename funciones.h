@@ -183,12 +183,12 @@ void mostrarNombre(char nombre[30]){
 
 
 int tiradasTotales=0;
-void asignarValores(int d[], int tam, int j[], int pFinal[], bool testeo, bool &ganoPartida, bool manual, int  contTirada, int rondas, char vNombre[30]){
+void asignarValores(int d[], int tam, int j[], int pFinal[], bool testeo, bool &ganoPartida, bool manual, int  contTirada, int rondas, char vNombre[30], int &sumaPuntaje){
     system("cls");
 
     int i, x, p, opc2, opc3, opc4;
     bool elegido = false;
-    int sumaPuntaje = sumarVector(pFinal, 10);
+    sumaPuntaje = sumarVector(pFinal, 10);
     tiradasTotales++;
 
     while (contTirada < 3 && elegido == false && ganoPartida == false){
