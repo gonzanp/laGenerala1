@@ -2,6 +2,7 @@
 #define FUNCIONESGENERALES_H_INCLUDED
 void comenzarRonda();
 void comenzarRonda2();
+int main();
 ////
     void comenzarRonda(){
     int dados[5], vPuntos[10], puntajeFinal[10],limite = 6, opc1, rondas=0, tiradasTotales=0, sumaPuntaje = 0, tiradas = 0;
@@ -27,7 +28,7 @@ case 1:
     manual=false;
     cargarAleatorio(dados, 5, 6);
     ordenarVector(dados, 5);
-    asignarValores(dados, 5, vPuntos, puntajeFinal, testeo, ganoPartida, manual, tiradas, rondas, vNombre, sumaPuntaje);
+    asignarValores(dados, 5, vPuntos, puntajeFinal, testeo, ganoPartida, manual, tiradas, rondas, vNombre, sumaPuntaje, tiradasTotales);
 
     }
     if(ganoPartida == true){
@@ -45,7 +46,7 @@ case 2:
     while(rondas < 10 && ganoPartida == false){
     rondas++;
     manual=true;
-    asignarValores(dados, 5, vPuntos, puntajeFinal, testeo, ganoPartida, manual, tiradas, rondas, vNombre, sumaPuntaje);
+    asignarValores(dados, 5, vPuntos, puntajeFinal, testeo, ganoPartida, manual, tiradas, rondas, vNombre, sumaPuntaje, tiradasTotales);
     }
     if(ganoPartida == true){
     cout<<"FELICIDADES "<<vNombre<<", OBTUVISTE GENERALA SERVIDA Y GANASTE CON UN PUNTAJE DE: "<<sumaPuntaje<<" CON UNOS TIROS TOTALES DE: "<<tiradasTotales<<endl;
@@ -55,11 +56,12 @@ case 2:
     }
     break;
 }
+main();
 }
 
 
     void comenzarRonda2(){
-    int dados[5], vPuntos[10], puntajeFinal[10], puntajeFinal2[10], limite = 6, opc1, rondas=0, tiradasTotales=0, sumaPuntaje = 0, sumaPuntaje2 = 0, tiradas = 0;
+    int dados[5], vPuntos[10], puntajeFinal[10], puntajeFinal2[10], limite = 6, opc1, rondas=0, tiradasTotales=0, tiradasTotales2= 0, sumaPuntaje = 0, sumaPuntaje2 = 0, tiradas = 0;
     char vNombre[30], vNombre2[30];
     bool ganoPartida = false, manual=false, testeo=false;
 
@@ -77,14 +79,14 @@ case 2:
     rondas++;
     cargarAleatorio(dados, 5, 6);
     ordenarVector(dados, 5);
-    asignarValores(dados, 5, vPuntos, puntajeFinal, testeo, ganoPartida, manual, tiradas, rondas, vNombre, sumaPuntaje);
+    asignarValores(dados, 5, vPuntos, puntajeFinal, testeo, ganoPartida, manual, tiradas, rondas, vNombre, sumaPuntaje, tiradasTotales);
 
 
     ///jugador 2
 
     cargarAleatorio(dados, 5, 6);
     ordenarVector(dados, 5);
-    asignarValores(dados, 5, vPuntos, puntajeFinal2, testeo, ganoPartida, manual, tiradas, rondas, vNombre2, sumaPuntaje2);
+    asignarValores(dados, 5, vPuntos, puntajeFinal2, testeo, ganoPartida, manual, tiradas, rondas, vNombre2, sumaPuntaje2, tiradasTotales2);
     }
     sumaPuntaje = sumarVector(puntajeFinal, 10);
     sumaPuntaje2 = sumarVector(puntajeFinal2, 10);
@@ -94,7 +96,7 @@ case 2:
     }else{
     cout<<"EL GANADOR ES EL JUGADOR: "<<vNombre2<<" CON UN PUNTAJE DE: "<<sumaPuntaje2<<endl;
     }
-
+    main();
 }
 
 
