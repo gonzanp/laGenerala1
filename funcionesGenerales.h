@@ -1,7 +1,10 @@
 #ifndef FUNCIONESGENERALES_H_INCLUDED
 #define FUNCIONESGENERALES_H_INCLUDED
+
+
 void comenzarRonda();
 void comenzarRonda2();
+void mostrarMaximaPuntuacion();
 int main();
 ////
     void comenzarRonda(){
@@ -56,6 +59,7 @@ case 2:
     }
     break;
 }
+maximaPuntuacion(vNombre, tiradasTotales, sumaPuntaje);
 main();
 }
 
@@ -63,7 +67,7 @@ main();
     void comenzarRonda2(){
     int dados[5], vPuntos[10], puntajeFinal[10], puntajeFinal2[10], limite = 6, opc1, rondas=0, tiradasTotales=0, tiradasTotales2= 0, sumaPuntaje = 0, sumaPuntaje2 = 0, tiradas = 0;
     char vNombre[30], vNombre2[30];
-    bool ganoPartida = false, manual=false, testeo=false;
+    bool ganoPartida = false, ganoPartida2 = false, manual=false, testeo=false;
 
     cout<<"- INGRESE EL NOMBRE DEL JUGADOR UNO(1): ";
     cargarNombre(vNombre);
@@ -74,29 +78,32 @@ main();
 
 
 
-    while(rondas < 10 && ganoPartida == false){
+    while(rondas < 10 && ganoPartida == false && ganoPartida2 == false){
             ///jugador 1
     rondas++;
     cargarAleatorio(dados, 5, 6);
     ordenarVector(dados, 5);
     asignarValores(dados, 5, vPuntos, puntajeFinal, testeo, ganoPartida, manual, tiradas, rondas, vNombre, sumaPuntaje, tiradasTotales);
 
-
     ///jugador 2
-
     cargarAleatorio(dados, 5, 6);
     ordenarVector(dados, 5);
-    asignarValores(dados, 5, vPuntos, puntajeFinal2, testeo, ganoPartida, manual, tiradas, rondas, vNombre2, sumaPuntaje2, tiradasTotales2);
+    asignarValores(dados, 5, vPuntos, puntajeFinal2, testeo, ganoPartida2, manual, tiradas, rondas, vNombre2, sumaPuntaje2, tiradasTotales2);
     }
     sumaPuntaje = sumarVector(puntajeFinal, 10);
     sumaPuntaje2 = sumarVector(puntajeFinal2, 10);
 
     if(sumaPuntaje > sumaPuntaje2){
     cout<<"EL GANADOR ES EL JUGADOR: "<<vNombre<<" CON UN PUNTAJE DE: "<<sumaPuntaje<<endl;
+    maximaPuntuacion(vNombre , tiradasTotales, sumaPuntaje);
     }else{
     cout<<"EL GANADOR ES EL JUGADOR: "<<vNombre2<<" CON UN PUNTAJE DE: "<<sumaPuntaje2<<endl;
+    maximaPuntuacion(vNombre2, tiradasTotales2, sumaPuntaje2);
     }
     main();
+}
+void mostrarMaximaPuntuacion(){
+    ///cout<<mostrarNombre(vecNombre[30])<<" obtuvo el mayor puntaje, con un total de: "<< &maxPuntuacion<< " ,en "<< &tiradasTotales<< " tiradas."<<endl;
 }
 
 

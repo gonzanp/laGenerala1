@@ -34,9 +34,10 @@ void comenzarRonda();// funcion principal que encapsula todo
 void cargarCadena();// cargamos cadena a vector char
 void cargarNombre();// carga nombre en modo de juego de un jugador
 void mostrarNombre();//  muestra nombre en modo de juego de un jugador
-void cargarNombres();//  carga nombres en modo de juego de dos jugadores
-void mostrarNombres();//  muestra nombre en modo de juego de dos jugadores
 void asignarValores(); // asigna los valores de dados a puntajes de los distintos tipos de combinaciones de juegos
+void maximaPuntuacion(); // asigna posicion maxima al mayor puntaje
+
+
 
 /// Desarrollo de funciones / Definiciones
 int posicionNumeroEnVector(int v[],int tam, int numero){
@@ -171,18 +172,8 @@ void mostrarNombre(char nombre[30]){
 
     cout<<nombre;
     }
-//void cargarNombres(char nombre[30]){
-//    cargarCadena( nombre, 29);
-  //  cargarCadena( nombre, 29);
-  //  }
-//void mostrarNombres(char nombre[2][30]){
-
-   // cout<<nombre[0]<<endl;
-   // cout<<nombre[1]<<endl;
- //   }
 
 
-///int tiradasTotales=0;
 void asignarValores(int d[], int tam, int j[], int pFinal[], bool testeo, bool &ganoPartida, bool manual, int  contTirada, int rondas, char vNombre[30], int &sumaPuntaje, int &tiradasTotales){
     system("cls");
 
@@ -592,6 +583,13 @@ tiradasTotales = tiradasTotales + contTirada;
     system("cls");
 
 }
-
+void maximaPuntuacion(char vecNombre[],int tiradasTotales, int puntaje){
+    int maxPuntuacionAnt = puntaje;
+    int maxPuntuacion= 0;
+    if(puntaje >= maxPuntuacionAnt){
+        maxPuntuacion = puntaje;
+        }
+       /// mostrarMaximaPuntuacion(vecNombre,tiradasTotales, maxPuntuacion);
+}
 
 #endif // FUNCIONES_H_INCLUDED
