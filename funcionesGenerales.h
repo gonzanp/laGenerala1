@@ -20,6 +20,7 @@ void comenzarRonda2();
     }
     switch(opc1){
 
+
 case 1:
     ponerCero(puntajeFinal,10);
     while(rondas < 10 && ganoPartida == false){
