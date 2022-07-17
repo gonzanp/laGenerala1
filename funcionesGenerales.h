@@ -27,7 +27,7 @@ case 1:
     manual=false;
     cargarAleatorio(dados, 5, 6);
     ordenarVector(dados, 5);
-    asignarValores(dados, 5, vPuntos, puntajeFinal, testeo, ganoPartida, manual, tiradas, rondas, vNombre);
+    asignarValores(dados, 5, vPuntos, puntajeFinal, testeo, ganoPartida, manual, tiradas, rondas, vNombre, sumaPuntaje);
 
     }
     if(ganoPartida == true){
@@ -45,7 +45,7 @@ case 2:
     while(rondas < 10 && ganoPartida == false){
     rondas++;
     manual=true;
-    asignarValores(dados, 5, vPuntos, puntajeFinal, testeo, ganoPartida, manual, tiradas, rondas, vNombre);
+    asignarValores(dados, 5, vPuntos, puntajeFinal, testeo, ganoPartida, manual, tiradas, rondas, vNombre, sumaPuntaje);
     }
     if(ganoPartida == true){
     cout<<"FELICIDADES "<<vNombre<<", OBTUVISTE GENERALA SERVIDA Y GANASTE CON UN PUNTAJE DE: "<<sumaPuntaje<<" CON UNOS TIROS TOTALES DE: "<<tiradasTotales<<endl;
@@ -70,20 +70,21 @@ case 2:
     ponerCero(puntajeFinal,10);
     ponerCero(puntajeFinal2,10);
 
-    ///jugador 1
+
 
     while(rondas < 10 && ganoPartida == false){
+            ///jugador 1
     rondas++;
     cargarAleatorio(dados, 5, 6);
     ordenarVector(dados, 5);
-    asignarValores(dados, 5, vPuntos, puntajeFinal, testeo, ganoPartida, manual, tiradas, rondas, vNombre);
+    asignarValores(dados, 5, vPuntos, puntajeFinal, testeo, ganoPartida, manual, tiradas, rondas, vNombre, sumaPuntaje);
 
 
     ///jugador 2
 
     cargarAleatorio(dados, 5, 6);
     ordenarVector(dados, 5);
-    asignarValores(dados, 5, vPuntos, puntajeFinal2, testeo, ganoPartida, manual, tiradas, rondas, vNombre2);
+    asignarValores(dados, 5, vPuntos, puntajeFinal2, testeo, ganoPartida, manual, tiradas, rondas, vNombre2, sumaPuntaje2);
     }
     sumaPuntaje = sumarVector(puntajeFinal, 10);
     sumaPuntaje2 = sumarVector(puntajeFinal2, 10);
