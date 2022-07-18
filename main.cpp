@@ -25,10 +25,10 @@ case 2:
     comenzarRonda2();
     break;
 case 3:
-    ///mostrarMaximaPuntuacion();
+    mostrarMaximaPuntuacion();
 
-    void maximaPuntuacion();
-     cout<<"- LA MAXIMA PUNTUACION LA OBTUVO: "<< &vNombreMax<<" CON UN PUNTAJE DE: "<< &puntMax<<" Y UNOS TIROS TOTALES DE: "<< &tiradasMax;
+
+    // cout<<"- LA MAXIMA PUNTUACION LA OBTUVO: "<< &vNombreMax<<" CON UN PUNTAJE DE: "<< &puntMax<<" Y UNOS TIROS TOTALES DE: "<< &tiradasMax;
 
 break;
 case 4:

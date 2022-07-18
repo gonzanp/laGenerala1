@@ -584,20 +584,14 @@ tiradasTotales = tiradasTotales + contTirada;
     system("cls");
 
 }
+
+
 void maximaPuntuacion(char vecNombre[],int tiradasTotales, int puntaje){
-    int maxPuntuacionAnt = puntaje;
-    int i;
-    int *puntMax;
-    int *tiradasMax;
-    char *vNombreMax;
-    if(puntaje >= maxPuntuacionAnt){
-        *puntMax = puntaje;
-        *tiradasMax=tiradasTotales;
-        for(i=0;i<29;i++){
-        vNombreMax[i]=vecNombre[i];
-        }
-        }
-        main();
+    int puntajeAnterior = puntaje;
+    int maxPuntaje = 0;
+    if(puntaje >= puntajeAnterior){
+        maxPuntaje = puntaje;
+    }
     }
 
 
