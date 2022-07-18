@@ -4,11 +4,10 @@
 
 void comenzarRonda();
 void comenzarRonda2();
-void mostrarMaximaPuntuacion();
 int main();
 ////
     void comenzarRonda(){
-    int dados[5], vPuntos[10], puntajeFinal[10],limite = 6, opc1, rondas=0, tiradasTotales=0, sumaPuntaje = 0, tiradas = 0;
+    int dados[5], vPuntos[10], puntajeFinal[10],limite = 6, opc1, rondas=0, tiradasTotales=0, sumaPuntaje = 0, tiradas = 0, puntMaxLocal;
     char vNombre[30];
     bool ganoPartida = false, testeo = false, manual=false, generala=false;
 
@@ -58,7 +57,14 @@ case 2:
     cout<<"TERMINASTE LA PARTIDA "<<vNombre<<", CON UN PUNTAJE DE: "<<sumaPuntaje<<", CON UNOS TIROS TOTALES DE: "<<tiradasTotales<<endl;
     }
     break;
-}
+    ///puntMaxLocal = *puntMax;
+}/*if(sumaPuntaje > puntMaxLocal){
+    puntMax = sumaPuntaje;
+    tiradasMax = tiradasTotales;
+    for(int i=0; i <29; i++){
+        vNombreMax[i] = vNombre[i];
+    }
+}*/
 maximaPuntuacion(vNombre, tiradasTotales, sumaPuntaje);
 main();
 }
@@ -95,16 +101,15 @@ main();
 
     if(sumaPuntaje > sumaPuntaje2){
     cout<<"EL GANADOR ES EL JUGADOR: "<<vNombre<<" CON UN PUNTAJE DE: "<<sumaPuntaje<<endl;
-    maximaPuntuacion(vNombre , tiradasTotales, sumaPuntaje);
+    ///maximaPuntuacion(vNombre , tiradasTotales, sumaPuntaje);
+      maximaPuntuacion(vNombre, tiradasTotales, sumaPuntaje);
     }else{
     cout<<"EL GANADOR ES EL JUGADOR: "<<vNombre2<<" CON UN PUNTAJE DE: "<<sumaPuntaje2<<endl;
-    maximaPuntuacion(vNombre2, tiradasTotales2, sumaPuntaje2);
+  maximaPuntuacion(vNombre2, tiradasTotales, sumaPuntaje2);
     }
     main();
 }
-void mostrarMaximaPuntuacion(){
-    ///cout<<mostrarNombre(vecNombre[30])<<" obtuvo el mayor puntaje, con un total de: "<< &maxPuntuacion<< " ,en "<< &tiradasTotales<< " tiradas."<<endl;
-}
+
 
 
 #endif // FUNCIONESGENERALES_H_INCLUDED

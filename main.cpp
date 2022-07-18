@@ -11,7 +11,7 @@ using namespace std;
 #include "funciones.h"
 #include "funcionesGenerales.h"
 int main(){
-int opc, puntMax, tiradasMax;
+int opc, puntMax= 0, tiradasMax;
 char vNombreMax[30];
     cout<<"1-Juego nuevo de a 1."<<endl<<
     "2 Juego nuevo entre 2."<<endl<<
@@ -25,8 +25,12 @@ case 2:
     comenzarRonda2();
     break;
 case 3:
-    mostrarMaximaPuntuacion();
-    break;
+    ///mostrarMaximaPuntuacion();
+
+    void maximaPuntuacion();
+     cout<<"- LA MAXIMA PUNTUACION LA OBTUVO: "<< &vNombreMax<<" CON UN PUNTAJE DE: "<< &puntMax<<" Y UNOS TIROS TOTALES DE: "<< &tiradasMax;
+
+break;
 case 4:
     cout<<"salir"<<endl;
     exit(-1);
