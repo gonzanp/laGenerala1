@@ -2,6 +2,7 @@
 #define FUNCIONES_H_INCLUDED
 
 /// DECLARACIÓN/PROTOTIPO DE FUNCIONES
+int main();
 void cargarVector(int v[], int tam);///asigna valores a cada una de las posiciones del vector
 
 void mostrarVector(int v[], int tam);/// muestra lo que contiene cada una de las posiciones del vector
@@ -583,13 +584,16 @@ tiradasTotales = tiradasTotales + contTirada;
     system("cls");
 
 }
+
+
 void maximaPuntuacion(char vecNombre[],int tiradasTotales, int puntaje){
-    int maxPuntuacionAnt = puntaje;
-    int maxPuntuacion= 0;
-    if(puntaje >= maxPuntuacionAnt){
-        maxPuntuacion = puntaje;
-        }
-       /// mostrarMaximaPuntuacion(vecNombre,tiradasTotales, maxPuntuacion);
-}
+    int puntajeAnterior = puntaje;
+    int maxPuntaje = 0;
+    if(puntaje >= puntajeAnterior){
+        maxPuntaje = puntaje;
+    }
+    }
+
+
 
 #endif // FUNCIONES_H_INCLUDED
