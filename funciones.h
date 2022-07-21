@@ -36,7 +36,6 @@ void cargarCadena();// cargamos cadena a vector char
 void cargarNombre();// carga nombre en modo de juego de un jugador
 void mostrarNombre();//  muestra nombre en modo de juego de un jugador
 void asignarValores(); // asigna los valores de dados a puntajes de los distintos tipos de combinaciones de juegos
-void maximaPuntuacion(); // asigna posicion maxima al mayor puntaje
 
 
 
@@ -584,16 +583,6 @@ tiradasTotales = tiradasTotales + contTirada;
     system("cls");
 
 }
-
-
-void maximaPuntuacion(char vecNombre[],int tiradasTotales, int puntaje){
-    int puntajeAnterior = puntaje;
-    int maxPuntaje = 0;
-    if(puntaje >= puntajeAnterior){
-        maxPuntaje = puntaje;
-    }
-    }
-
 
 
 #endif // FUNCIONES_H_INCLUDED
