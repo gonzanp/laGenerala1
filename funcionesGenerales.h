@@ -4,11 +4,10 @@
 
 void comenzarRonda(char nombre[30], int &puntos, int &tiradasGanador);
 void comenzarRonda2(char nombre[30], int &puntos, int &tiradasGanador);
-///void mostrarMaximaPuntuacion();
+
 ////
     void comenzarRonda(char nombre[30], int &puntos, int &tiradasGanador){
-    int dados[5], vPuntos[10], puntajeFinal[10],limite = 6, opc1, rondas=0, tiradasTotales=0, sumaPuntaje = 0, tiradas = 0, puntMaxLocal;
-    ///char vNombre[30];
+    int dados[5], vPuntos[10], puntajeFinal[10],limite = 6, opc1, rondas=0, tiradasTotales=0, sumaPuntaje = 0, tiradas = 0;
     bool ganoPartida = false, testeo = false, manual=false, generala=false;
 
     cout<<"-INGRESE SU NOMBRE: ";
@@ -60,7 +59,6 @@ case 2:
     }
     puntos = sumaPuntaje;
     tiradasGanador = tiradasTotales;
-    //strcpy(nombre, vNombre);
 }
 
     void comenzarRonda2(char nombre[30], int &puntos, int &tiradasGanador){
@@ -104,9 +102,6 @@ case 2:
     strcpy(nombre, vNombre2);
     }
 }
-///void mostrarMaximaPuntuacion(){
-    ///maximaPuntuacion(char vecNombre[], int tiradasTotales, int puntaje);
-///}
 
 
 
