@@ -32,7 +32,7 @@ case 3:
         tiradasMax = tiradas;
         strcpy(ganadorMax,ganador);
         }
-        cout<<"el jugador: "<<ganadorMax<<" posee el record de puntuación con un total de "<<puntajeMax<<" puntos, en "<<tiradasMax<<" tiradas."<<endl;
+        cout<<"el jugador: "<<ganadorMax<<" posee el record de puntuacion con un total de "<<puntajeMax<<" puntos, en "<<tiradasMax<<" tiradas."<<endl;
     system("pause");
     break;
 case 4:
