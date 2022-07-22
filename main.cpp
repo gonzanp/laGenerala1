@@ -7,18 +7,21 @@
 #include<cstring>
 #include"rlutil.h"
 
-
 using namespace std;
+
 #include "funciones.h"
 #include "funcionesGenerales.h"
 int main(){
 int opc, puntaje= 0, tiradas= 0, puntajeMax= 0, tiradasMax = 0;
 char ganador[30], ganadorMax[30];
+rlutil::setBackgroundColor(rlutil::LIGHTMAGENTA);
+
 while(true){
-    cout<<"1-Juego nuevo de a 1."<<endl<<
-    "2 Juego nuevo entre 2."<<endl<<
-    "3 Mostrar puntuacion mas alta."<<endl<<
-    "4 Salir."<<endl;
+    system("cls");
+    cout<<"1- JUEGO NUEVO DE A 1."<<endl<<
+    "2- JUEGO NUEVO ENTRE 2."<<endl<<
+    "3- MOSTRAR PUNTUACION MAS ALTA."<<endl<<
+    "4- SALIR."<<endl;
     cin>>opc;
     switch(opc){
 case 1:comenzarRonda(ganador, puntaje, tiradas);
@@ -32,14 +35,15 @@ case 3:
         tiradasMax = tiradas;
         strcpy(ganadorMax,ganador);
         }
-        cout<<"el jugador: "<<ganadorMax<<" posee el record de puntuación con un total de "<<puntajeMax<<" puntos, en "<<tiradasMax<<" tiradas."<<endl;
+        cout<<"EL JUGADOR: "<<ganadorMax<<" POSEE EL RECORD DE PUNTUACION CON UN TOTAL DE: "<<puntajeMax<<" PUNTOS, EN "<<tiradasMax<<" TIRADAS."<<endl;
     system("pause");
     break;
 case 4:
     return 0;
     break;
 default:
-    cout<<"opción incorrecta"<<endl;
+    cout<<"- OPCION INCORRECTA -"<<endl;
+    system("pause");
     }
 }
 }
