@@ -33,12 +33,12 @@ case 1:
 
     }
     if(ganoPartida == true){
-
     cout<<"FELICIDADES "<<nombre<<", OBTUVISTE GENERALA SERVIDA Y GANASTE CON UN PUNTAJE DE: "<<sumaPuntaje<<", CON UNOS TIROS TOTALES DE: "<<tiradasTotales<<endl;
-    mostrarVector(puntajeFinal,10);
+    system("pause");
     }
     if(rondas == 10){
     cout<<"TERMINASTE LA PARTIDA "<<nombre<<" CON UN PUNTAJE DE: "<<sumaPuntaje<<", CON UNOS TIROS TOTALES DE: "<<tiradasTotales<<endl;
+    system("pause");
     }
     break;
 
@@ -51,9 +51,11 @@ case 2:
     }
     if(ganoPartida == true){
     cout<<"FELICIDADES "<<nombre<<", OBTUVISTE GENERALA SERVIDA Y GANASTE CON UN PUNTAJE DE: "<<sumaPuntaje<<" CON UNOS TIROS TOTALES DE: "<<tiradasTotales<<endl;
+    system("pause");
     }
     if(rondas == 10){
     cout<<"TERMINASTE LA PARTIDA "<<nombre<<", CON UN PUNTAJE DE: "<<sumaPuntaje<<", CON UNOS TIROS TOTALES DE: "<<tiradasTotales<<endl;
+    system("pause");
     }
     break;
     }
@@ -95,11 +97,13 @@ case 2:
     puntos = sumaPuntaje;
     tiradasGanador = tiradasTotales;
     strcpy(nombre, vNombre);
+    system("pause");
     }else{
     cout<<"EL GANADOR ES EL JUGADOR: "<<vNombre2<<" CON UN PUNTAJE DE: "<<sumaPuntaje2<<" CON UNOS TIROS TOTALES DE: "<<tiradasTotales2<<endl;
     puntos = sumaPuntaje2;
     tiradasGanador = tiradasTotales2;
     strcpy(nombre, vNombre2);
+    system("pause");
     }
 }
 
