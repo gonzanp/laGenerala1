@@ -1,6 +1,7 @@
 #ifndef FUNCIONES_H_INCLUDED
 #define FUNCIONES_H_INCLUDED
 
+
 /// DECLARACIÓN/PROTOTIPO DE FUNCIONES
 int main();
 void cargarVector(int v[], int tam);///asigna valores a cada una de las posiciones del vector
@@ -31,11 +32,16 @@ bool compararVectores(int v[], int v2[],int tam );// compara los dos vectores qu
 
 void cargarNombre(int v[], int tam); /// agrega nombres de los jugadores a vectores de formato char
 
+void dubujarCuadrado(int posx, int posy, int tam = 7); ///dibujar cuadrados de los dados
+
+void dibujarDado(int posx, int posy, int num, int tam = 7); ///dibujar dados
+
 void comenzarRonda();// funcion principal que encapsula todo
 void cargarCadena();// cargamos cadena a vector char
 void cargarNombre();// carga nombre en modo de juego de un jugador
 void mostrarNombre();//  muestra nombre en modo de juego de un jugador
 void asignarValores(); // asigna los valores de dados a puntajes de los distintos tipos de combinaciones de juegos
+void imprimirDados();//imprime tirada de dados
 
 
 
@@ -91,7 +97,7 @@ void cargarAleatorio(int v[], int tam, int limite){
 void mostrarVector(int v[], int tam){
     int i;
     for(i=0;i<tam;i++){
-        cout<<v[i]<<"\t";
+      cout<<v[i]<<"\t";
     }
     cout<<endl;
 }
@@ -165,7 +171,6 @@ void cargarCadena(char *pal, int tam){
 }
 
 void cargarNombre(char nombre[30]){
-    //system("cls");
     cargarCadena( nombre, 29);
     }
 void mostrarNombre(char nombre[30]){
@@ -173,10 +178,170 @@ void mostrarNombre(char nombre[30]){
     cout<<nombre;
     }
 
+void dubujarCuadrado(int posx, int posy, int tam) {
+	for (int y = 1; y <= tam / 2; y++) {
+		for (int x = 1; x <= tam; x++) {
+			rlutil::locate(x + posx, y + posy);
+			cout << (char)219;
+		}
+	}
+}
 
-void asignarValores(int d[], int tam, int j[], int pFinal[], bool testeo, bool &ganoPartida, bool manual, int  contTirada, int rondas, char vNombre[30], int &sumaPuntaje, int &tiradasTotales){
-    system("cls");
+void dibujarDado(int posx, int posy, int num, int tam) {
+	rlutil::setColor(rlutil::WHITE);
+	dubujarCuadrado(posx, posy);
 
+
+	rlutil::setBackgroundColor(rlutil::WHITE);
+	rlutil::setColor(rlutil::BLACK);
+
+	switch (num)
+	{
+	case 1:
+		rlutil::locate(posx + tam / 2 + 1, posy + tam / 4 + 1);
+		cout << (char)254;
+		break;
+
+	case 2:
+		rlutil::locate(posx + tam / 4 + 1, posy + tam / 4 / 4 + 1);
+		cout << (char)220;
+
+
+		rlutil::locate(posx + tam - tam / 4, posy + tam / 2 - tam / 4 / 4);
+		cout << (char)223;
+
+		break;
+
+	case 3:
+		rlutil::locate(posx + tam / 4 + 1, posy + tam / 4 / 4 + 1);
+		cout << (char)220;
+
+		rlutil::locate(posx + tam / 2 + 1, posy + tam / 4 + 1);
+		cout << (char)254;
+
+		rlutil::locate(posx + tam - tam / 4, posy + tam / 2 - tam / 4 / 4);
+		cout << (char)223;
+
+		break;
+
+
+	case 4:
+		rlutil::locate(posx + tam / 4 + 1, posy + tam / 4 / 4 + 1);
+		cout << (char)220;
+
+		rlutil::locate(posx + tam - tam / 4, posy + tam / 4 / 4 + 1);
+		cout << (char)220;
+
+		rlutil::locate(posx + tam - tam / 4, posy + tam / 2 - tam / 4 / 4);
+		cout << (char)223;
+
+		rlutil::locate(posx + tam / 4 + 1, posy + tam / 2 - tam / 4 / 4);
+		cout << (char)223;
+
+		break;
+
+	case 5:
+		rlutil::locate(posx + tam / 4 + 1, posy + tam / 4 / 4 + 1);
+		cout << (char)220;
+
+		rlutil::locate(posx + tam - tam / 4, posy + tam / 4 / 4 + 1);
+		cout << (char)220;
+
+		rlutil::locate(posx + tam / 2 + 1, posy + tam / 4 + 1);
+		cout << (char)254;
+
+		rlutil::locate(posx + tam - tam / 4, posy + tam / 2 - tam / 4 / 4);
+		cout << (char)223;
+
+		rlutil::locate(posx + tam / 4 + 1, posy + tam / 2 - tam / 4 / 4);
+		cout << (char)223;
+
+		break;
+
+
+	case 6:
+		rlutil::locate(posx + tam / 4 + 1, posy + tam / 4 / 4 + 1);
+		cout << (char)220;
+
+		rlutil::locate(posx + tam - tam / 4, posy + tam / 4 / 4 + 1);
+		cout << (char)220;
+
+		rlutil::locate(posx + tam / 2 + 1, posy + tam / 4 / 4 + 1);
+		cout << (char)220;
+
+		rlutil::locate(posx + tam / 2 + 1, posy + tam / 2 - tam / 4 / 4);
+		cout << (char)223;
+
+		rlutil::locate(posx + tam - tam / 4, posy + tam / 2 - tam / 4 / 4);
+		cout << (char)223;
+
+		rlutil::locate(posx + tam / 4 + 1, posy + tam / 2 - tam / 4 / 4);
+		cout << (char)223;
+
+		break;
+
+	default:
+		break;
+	}
+	rlutil::setBackgroundColor(rlutil::GREEN);
+
+	rlutil::setColor(rlutil::GREY);
+	// sombra
+
+	for (int y = posy + 2; y <= posy + tam / 2 + 1; y++) {
+		rlutil::locate(posx + tam + 1, y);
+		cout << (char)219;
+	}
+
+
+	for (int x = posx + 2; x <= posx + tam + 1; x++) {
+		rlutil::locate(x, posy + tam / 2 + 1);
+		cout << (char)223;
+	}
+
+	rlutil::locate(posx + tam + 1, posy + 1);
+	cout << (char)220;
+
+	rlutil::locate(2, 10);
+
+}
+
+void imprimirDados(int d[], int tam){
+for (int i = 0; i <= 4; i++) {
+
+        switch(d[i]){
+
+    case 1:
+        dibujarDado(8*i+1,5,d[i]);
+        break;
+    case 2:
+        dibujarDado(8*i+1,5,d[i]);
+        break;
+    case 3:
+        dibujarDado(8*i+1,5,d[i]);
+        break;
+    case 4:
+        dibujarDado(8*i+1,5,d[i]);
+        break;
+    case 5:
+        dibujarDado(8*i+1,5,d[i]);
+        break;
+    case 6:
+        dibujarDado(8*i+1,5,d[i]);
+        break;
+    default:
+        break;
+
+    }
+
+	}
+
+
+}
+
+
+void RONDA(int d[], int tam, int j[], int pFinal[], bool testeo, bool &ganoPartida, bool manual, int  contTirada, int rondas, char vNombre[30], int &sumaPuntaje, int &tiradasTotales){
+    rlutil::cls();
     int i, x, p, opc2, opc3, opc4;
     bool elegido = false;
     sumaPuntaje = sumarVector(pFinal, 10);
@@ -195,9 +360,19 @@ void asignarValores(int d[], int tam, int j[], int pFinal[], bool testeo, bool &
     cout<<"------------------------------------------------------"<<endl;
     if(manual==true){
     cargarVector(d, 5);
+    rlutil::cls();
+    cout<<"TURNO DE ";
+    mostrarNombre(vNombre);
+    cout<<" | RONDA N "<<rondas;
+    cout<<" | PUNTAJE TOTAL: "<<sumaPuntaje;
+    cout<<endl;
+    cout<<"------------------------------------------------------"<<endl;
+    cout<<"TIRADA N "<<contTirada<<" - TIRADAS TOTALES: "<<tiradasTotales<<endl;
+    cout<<"------------------------------------------------------"<<endl;
+    imprimirDados(d, 5);
     }
     else{
-    mostrarVector(d, 5);
+    imprimirDados(d, 5);
 
     }
 
@@ -268,14 +443,15 @@ void asignarValores(int d[], int tam, int j[], int pFinal[], bool testeo, bool &
         pFinal[9]=50;
         sumaPuntaje = sumarVector(pFinal, 10);
         cout<<"GENERALA SERVIDA, GANASTE"<<endl;
-        system("pause");
+        rlutil::anykey();
         ganoPartida = true;
         }
 
     while(elegido == false && ganoPartida == false){
+    rlutil::setBackgroundColor(rlutil::GREEN);
     if(contTirada < 3){
     cout<<"1- ANOTAR EL PUNTAJE OBTENIDO EN LA TIRADA"<<endl;
-    cout<<"2- VOLVER A TIRAR LOS DADOS"<<endl;
+    cout<<" 2- VOLVER A TIRAR LOS DADOS"<<endl;
     cin>>opc2;
     }
     else{
@@ -284,7 +460,7 @@ void asignarValores(int d[], int tam, int j[], int pFinal[], bool testeo, bool &
     switch(opc2){
         case 1:
         cout<<"1- GUARDAR PUNTAJE"<<endl;
-        cout<<"2-ANULAR PUNTAJE"<<endl;
+        cout<<"2- ANULAR PUNTAJE"<<endl;
         cin>>opc3;
 
             switch(opc3){
@@ -475,7 +651,7 @@ void asignarValores(int d[], int tam, int j[], int pFinal[], bool testeo, bool &
                     break;
                 case 10:
                     if(pFinal[9] == 0){
-                    pFinal[9] = 0;}
+                    pFinal[9] = -1;}
                     else{
                     cout<<"ya posee valores en esta combinacion"<<endl;
                         }
@@ -504,7 +680,7 @@ case 2:
         }
     }
 
-    system("cls");
+    rlutil::cls();
     cout<<"TURNO DE ";
     mostrarNombre(vNombre);
     cout<<" | RONDA N "<<rondas;
@@ -514,7 +690,7 @@ case 2:
     cout<<"TIRADA N "<<contTirada<<" - TIRADAS TOTALES: "<<tiradasTotales<<endl;
     cout<<"------------------------------------------------------"<<endl;
     ordenarVector(d, 5);
-    mostrarVector(d, 5);
+    imprimirDados(d, 5);
 
 
 
@@ -579,8 +755,8 @@ case 2:
         }
     }
 }
-tiradasTotales = tiradasTotales + contTirada;
-    system("cls");
+tiradasTotales++;
+rlutil::cls();
 
 }
 
