@@ -3,7 +3,8 @@
 
 
 void PARTIDA(char nombre[30], int &puntos, int &tiradasGanador);
-void PARTIDA(char nombre[30], int &puntos, int &tiradasGanador);
+void PARTIDA2(char nombre[30], int &puntos, int &tiradasGanador);
+
 
 ////
     void PARTIDA(char nombre[30], int &puntos, int &tiradasGanador){
@@ -106,7 +107,18 @@ case 2:
     rlutil::anykey();
     }
 }
+/*showItem(const char* text, int posx, int posy, bool selected){
 
+    if(selected){
+        rlutil::setBackgroundColor(rlutil::BLUE);
+    }else{
+        rlutil::setBackgroundColor(rlutil::WHITE);
+    }
+
+
+}
+
+*/
 
 
 #endif // FUNCIONESGENERALES_H_INCLUDED

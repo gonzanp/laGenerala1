@@ -12,6 +12,19 @@ using namespace std;
 #include "funciones.h"
 #include "funcionesGenerales.h"
 
+showItem(const char* text, int posx, int posy, bool selected){
+
+    if(selected){
+        rlutil::setBackgroundColor(rlutil::BLACK);
+    }else{
+        rlutil::setBackgroundColor(rlutil::GREEN);
+    }
+    rlutil::locate(posx, posy);
+    cout<< text <<endl;
+    rlutil::setBackgroundColor(rlutil::GREEN);
+
+}
+
 int main(){
 int opc, puntaje= 0, tiradas= 0, puntajeMax= 0, tiradasMax = 0;
 char ganador[30], ganadorMax[30];
@@ -21,9 +34,9 @@ int op = 1, y = 0;
 
 
 while(true){
-    //rlutil::cls();
-    rlutil::setBackgroundColor(rlutil::BLACK);
-    rlutil::setColor(rlutil::WHITE);
+    rlutil::cls();
+    ///rlutil::setBackgroundColor(rlutil::BLACK);
+    ///rlutil::setColor(rlutil::WHITE);
     rlutil::hidecursor();
 
     rlutil::locate(30,10);
@@ -39,7 +52,6 @@ while(true){
     showItem(" JUEGO NUEVO DE A 2.", 30, 11, y== 1);
     showItem(" MOSTRAR PUNTUACION MAS ALTA.", 30, 12, y== 2);
     showItem(" SALIR.", 30, 13, y== 3);
-
     rlutil::locate(28,10 + y);
     cout<<(char)175 <<endl;
 
@@ -91,7 +103,7 @@ while(true){
 
     }
 }
-
+}
 
 
 
