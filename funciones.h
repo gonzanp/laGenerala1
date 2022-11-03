@@ -32,9 +32,11 @@ bool compararVectores(int v[], int v2[],int tam );// compara los dos vectores qu
 
 void cargarNombre(int v[], int tam); /// agrega nombres de los jugadores a vectores de formato char
 
-void dubujarCuadrado(int posx, int posy, int tam = 7); ///dibujar cuadrados de los dados
+void dibujarCuadrado(int posx, int posy, int tam = 7); ///dibujar cuadrados de los dados
 
 void dibujarDado(int posx, int posy, int num, int tam = 7); ///dibujar dados
+
+
 
 void comenzarRonda();// funcion principal que encapsula todo
 void cargarCadena();// cargamos cadena a vector char
@@ -178,8 +180,9 @@ void mostrarNombre(char nombre[30]){
     cout<<nombre;
     }
 
-void dubujarCuadrado(int posx, int posy, int tam) {
+void dibujarCuadrado(int posx, int posy, int tam) {
 	for (int y = 1; y <= tam / 2; y++) {
+
 		for (int x = 1; x <= tam; x++) {
 			rlutil::locate(x + posx, y + posy);
 			cout << (char)219;
@@ -189,7 +192,7 @@ void dubujarCuadrado(int posx, int posy, int tam) {
 
 void dibujarDado(int posx, int posy, int num, int tam) {
 	rlutil::setColor(rlutil::WHITE);
-	dubujarCuadrado(posx, posy);
+	dibujarCuadrado(posx, posy);
 
 
 	rlutil::setBackgroundColor(rlutil::WHITE);
@@ -312,22 +315,22 @@ for (int i = 0; i <= 4; i++) {
         switch(d[i]){
 
     case 1:
-        dibujarDado(8*i+1,5,d[i]);
+        dibujarDado(17*(i+1),5,d[i]);
         break;
     case 2:
-        dibujarDado(8*i+1,5,d[i]);
+        dibujarDado(17*(i+1),5,d[i]);
         break;
     case 3:
-        dibujarDado(8*i+1,5,d[i]);
+        dibujarDado(17*(i+1),5,d[i]);
         break;
     case 4:
-        dibujarDado(8*i+1,5,d[i]);
+        dibujarDado(17*(i+1),5,d[i]);
         break;
     case 5:
-        dibujarDado(8*i+1,5,d[i]);
+        dibujarDado(17*(i+1),5,d[i]);
         break;
     case 6:
-        dibujarDado(8*i+1,5,d[i]);
+        dibujarDado(17*(i+1),5,d[i]);
         break;
     default:
         break;
@@ -349,10 +352,12 @@ void RONDA(int d[], int tam, int j[], int pFinal[], bool testeo, bool &ganoParti
 
     while (contTirada < 3 && elegido == false && ganoPartida == false){
     contTirada++;
-
+    rlutil::locate(10,0);
     cout<<"TURNO DE ";
     mostrarNombre(vNombre);
+    rlutil::locate(11,0);
     cout<<" | RONDA N "<<rondas;
+    rlutil::locate(12,0);
     cout<<" | PUNTAJE TOTAL: "<<sumaPuntaje;
     cout<<endl;
     cout<<"------------------------------------------------------"<<endl;
@@ -759,6 +764,5 @@ tiradasTotales++;
 rlutil::cls();
 
 }
-
 
 #endif // FUNCIONES_H_INCLUDED
