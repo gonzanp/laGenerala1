@@ -6,35 +6,28 @@
 #include<conio.h>
 #include"rlutil.h"
 #include<cstring>
+#include<windows.h>
+#include<mmsystem.h>
 
 using namespace std;
 
 #include "funciones.h"
 #include "funcionesGenerales.h"
 
-showItem(const char* text, int posx, int posy, bool selected){
 
-    if(selected){
-        rlutil::setBackgroundColor(rlutil::BLACK);
-    }else{
-        rlutil::setBackgroundColor(rlutil::GREEN);
-    }
-    rlutil::locate(posx, posy);
-    cout<< text <<endl;
-    rlutil::setBackgroundColor(rlutil::GREEN);
-
-}
 
 int main(){
+PlaySound(TEXT("game.wav"), NULL, SND_ASYNC);
+
 int opc, puntaje= 0, tiradas= 0, puntajeMax= 0, tiradasMax = 0;
 char ganador[30], ganadorMax[30];
-//rlutil::setBackgroundColor(rlutil::BLACK);
+///rlutil::setBackgroundColor(rlutil::GREEN);
 
 int op = 1, y = 0;
 
 
 while(true){
-    rlutil::cls();
+    ///rlutil::cls();
     ///rlutil::setBackgroundColor(rlutil::BLACK);
     ///rlutil::setColor(rlutil::WHITE);
     rlutil::hidecursor();
@@ -77,6 +70,7 @@ while(true){
         case 1: //enter
             switch(y){
                 case 0 :
+                    rlutil::locate(30,11);
                     PARTIDA(ganador, puntaje, tiradas);
 
                     break;
@@ -89,11 +83,16 @@ while(true){
                         tiradasMax = tiradas;
                         strcpy(ganadorMax,ganador);
                     }
+                    rlutil::cls();
+                    rlutil::locate(20,5);
                     cout<<"EL JUGADOR: "<<ganadorMax<<" POSEE EL RECORD DE PUNTUACION CON UN TOTAL DE: "<<puntajeMax<<" PUNTOS, EN "<<tiradasMax<<" TIRADAS."<<endl;
-                    system("pause");
+
+                    rlutil::anykey();
+                    rlutil::cls();
                     break;
                 case 3:
                     return 0;
+                    getch();
                     break;
 
 
