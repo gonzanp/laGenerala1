@@ -18,7 +18,7 @@ int main(){
 
 int puntaje= 0, tiradas= 0, puntajeMax= 0, tiradasMax = 0, y = 0;
 char ganador[30], ganadorMax[30];
-//PlaySound(TEXT("generala.wav"), NULL, SND_ASYNC);
+PlaySound(TEXT("generala.wav"), NULL, SND_ASYNC);
 rlutil::setBackgroundColor(rlutil::GREEN);
 while(true){
     rlutil::cls();
