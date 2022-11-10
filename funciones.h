@@ -4,6 +4,7 @@
 
 /// DECLARACIÓN/PROTOTIPO DE FUNCIONES
 int main();
+
 void cargarVector(int v[], int tam);///asigna valores a cada una de las posiciones del vector
 
 void mostrarVector(int v[], int tam);/// muestra lo que contiene cada una de las posiciones del vector
@@ -11,12 +12,12 @@ void mostrarVector(int v[], int tam);/// muestra lo que contiene cada una de las
 void ponerCero(int v[], int tam);/// pone en 0 todas las posiciones del vector
 
 int posicionNumeroEnVector(int v[],int tam, int numero);/// devuelve la posición que ocupa un número que se //envía como parámetro. Devuelve la primera posición que encuentra el número. Si no lo encuentra devuelve -1
+
 int contarNumerosRepetidos(int v[], int numero, int tam);///cuenta la cantidad de veces que se repite un //número en el vector
 
 int maximoVector(int v[], int tam);///devuelve  la posición (primera) que ocupa el máximo en el vector
 
 int minimoVector(int v[], int tam);///devuelve  la posición (primera) que ocupa el mínimo en el vector
-
 
 void cargarAleatorio(int v[], int tam, int limite);///asigna valores aleatorios a cada al vector
 
@@ -36,13 +37,16 @@ void dibujarCuadrado(int posx, int posy, int tam = 7); ///dibujar cuadrados de l
 
 void dibujarDado(int posx, int posy, int num, int tam = 7); ///dibujar dados
 
-
-
 void comenzarRonda();// funcion principal que encapsula todo
+
 void cargarCadena();// cargamos cadena a vector char
+
 void cargarNombre();// carga nombre en modo de juego de un jugador
+
 void mostrarNombre();//  muestra nombre en modo de juego de un jugador
+
 void asignarValores(); // asigna los valores de dados a puntajes de los distintos tipos de combinaciones de juegos
+
 void imprimirDados();//imprime tirada de dados
 
 
@@ -152,9 +156,12 @@ bool compararVectores(int v[], int v2[],int tam ){
 void cargarVector(int v[], int tam){
     int i;
     for(i=0;i<tam;i++){
+        rlutil::locate(20,10+i);
         cout<<"INGRESE NUMERO: ";
+        rlutil::locate(37,10+i);
         cin>>v[i];
         while(v[i] < 1 || v[i]>6){
+            rlutil::locate(20,10+i);
             cout<<"ERROR, INGRESE UN NUMERO DEL 1 AL 6: ";
             cin>>v[i];
         }
@@ -315,30 +322,27 @@ for (int i = 0; i <= 4; i++) {
         switch(d[i]){
 
     case 1:
-        dibujarDado(17*(i+1),5,d[i]);
+        dibujarDado(16*(i+1),10,d[i]);
         break;
     case 2:
-        dibujarDado(17*(i+1),5,d[i]);
+        dibujarDado(16*(i+1),10,d[i]);
         break;
     case 3:
-        dibujarDado(17*(i+1),5,d[i]);
+        dibujarDado(16*(i+1),10,d[i]);
         break;
     case 4:
-        dibujarDado(17*(i+1),5,d[i]);
+        dibujarDado(16*(i+1),10,d[i]);
         break;
     case 5:
-        dibujarDado(17*(i+1),5,d[i]);
+        dibujarDado(16*(i+1),10,d[i]);
         break;
     case 6:
-        dibujarDado(17*(i+1),5,d[i]);
+        dibujarDado(16*(i+1),10,d[i]);
         break;
     default:
         break;
-
+        }
     }
-
-	}
-
 
 }
 
@@ -352,28 +356,39 @@ void RONDA(int d[], int tam, int j[], int pFinal[], bool testeo, bool &ganoParti
 
     while (contTirada < 3 && elegido == false && ganoPartida == false){
     contTirada++;
-    rlutil::locate(10,0);
+    rlutil::locate(20,5);
     cout<<"TURNO DE ";
     mostrarNombre(vNombre);
-    rlutil::locate(11,0);
-    cout<<" | RONDA N "<<rondas;
-    rlutil::locate(12,0);
-    cout<<" | PUNTAJE TOTAL: "<<sumaPuntaje;
+    rlutil::locate(42,5);
+    cout<<" | RONDA N "<<rondas<<" |";
+    rlutil::locate(65,5);
+    cout<<"PUNTAJE TOTAL: "<<sumaPuntaje;
     cout<<endl;
-    cout<<"------------------------------------------------------"<<endl;
-    cout<<"TIRADA N "<<contTirada<<" - TIRADAS TOTALES: "<<tiradasTotales<<endl;
-    cout<<"------------------------------------------------------"<<endl;
+    rlutil::locate(20,6);
+    cout<<"-----------------------------------------------------------------"<<endl;
+    rlutil::locate(20,7);
+    cout<<"TIRADA N *"<<contTirada<<"\t\t\t\t\tTIRADAS TOTALES: "<<tiradasTotales<<endl;
+    rlutil::locate(20,8);
+    cout<<"-----------------------------------------------------------------"<<endl;
     if(manual==true){
     cargarVector(d, 5);
     rlutil::cls();
+
+    rlutil::locate(20,5);
     cout<<"TURNO DE ";
     mostrarNombre(vNombre);
-    cout<<" | RONDA N "<<rondas;
-    cout<<" | PUNTAJE TOTAL: "<<sumaPuntaje;
+    rlutil::locate(42,5);
+    cout<<" | RONDA N "<<rondas<<" |";
+    rlutil::locate(65,5);
+    cout<<"PUNTAJE TOTAL: "<<sumaPuntaje;
     cout<<endl;
-    cout<<"------------------------------------------------------"<<endl;
-    cout<<"TIRADA N "<<contTirada<<" - TIRADAS TOTALES: "<<tiradasTotales<<endl;
-    cout<<"------------------------------------------------------"<<endl;
+    rlutil::locate(20,6);
+    cout<<"-----------------------------------------------------------------"<<endl;
+    rlutil::locate(20,7);
+    cout<<"TIRADA N *"<<contTirada<<"\t\t\t\t\tTIRADAS TOTALES: "<<tiradasTotales<<endl;
+    rlutil::locate(20,8);
+    cout<<"-----------------------------------------------------------------"<<endl;
+
     imprimirDados(d, 5);
     }
     else{
@@ -381,12 +396,10 @@ void RONDA(int d[], int tam, int j[], int pFinal[], bool testeo, bool &ganoParti
 
     }
 
-
     ///PONER EN CERO EL VECTOR
     for(i=0; i<9; i++){
     ponerCero(j, 10);
     }
-
 
     ///COMBINACIONES DEL 1 AL 6
     for(i = 0; i<6; i++){
@@ -447,16 +460,19 @@ void RONDA(int d[], int tam, int j[], int pFinal[], bool testeo, bool &ganoParti
     if(contTirada == 1 && j[9]==50){
         pFinal[9]=50;
         sumaPuntaje = sumarVector(pFinal, 10);
-        cout<<"GENERALA SERVIDA, GANASTE"<<endl;
+        rlutil::locate(42,17);
+        cout<<"GENERALA SERVIDA, GANASTE!"<<endl;
         rlutil::anykey();
         ganoPartida = true;
         }
 
     while(elegido == false && ganoPartida == false){
-    rlutil::setBackgroundColor(rlutil::GREEN);
     if(contTirada < 3){
+    rlutil::locate(30,17);
     cout<<"1- ANOTAR EL PUNTAJE OBTENIDO EN LA TIRADA"<<endl;
-    cout<<" 2- VOLVER A TIRAR LOS DADOS"<<endl;
+    rlutil::locate(30,18);
+    cout<<"2- VOLVER A TIRAR LOS DADOS"<<endl;
+    rlutil::locate(30,19);
     cin>>opc2;
     }
     else{
@@ -464,31 +480,48 @@ void RONDA(int d[], int tam, int j[], int pFinal[], bool testeo, bool &ganoParti
     int cantDados,dadosR;
     switch(opc2){
         case 1:
-        cout<<"1- GUARDAR PUNTAJE"<<endl;
-        cout<<"2- ANULAR PUNTAJE"<<endl;
+        rlutil::locate(30,17);
+        cout<<"1- GUARDAR PUNTAJE\t\t\t\t"<<endl;
+        rlutil::locate(30,18);
+        cout<<"2- ANULAR PUNTAJE\t\t"<<endl;
+        rlutil::locate(30,19);
+        cout<<"\t\t"<<endl;
+        rlutil::locate(30,19);
         cin>>opc3;
 
             switch(opc3){
             case 1:
                 elegido = true;
+                rlutil::cls();
+                rlutil::locate(25,5);
+                cout<<"-----------------------------------------------------------------"<<endl;
+                rlutil::locate(46,10);
                 cout<<"Eliga opcion ganadora: "<<endl;
                 for(i=0; i<6; i++){
                 if(j[i] > 0 && pFinal[i] == 0){
+                rlutil::locate(46,(11+i));
                 cout<<i+1<<"- "<< j[i] <<" al "<<i+1<<endl;
                     }
                 }
                 if(j[6] > 0 && pFinal[6] == 0){
+                rlutil::locate(46,17);
                 cout<<"7- "<< j[6] <<" A LA ESCALERA "<<endl;
                     }
                 if(j[7] > 0 && pFinal[7] == 0){
+                rlutil::locate(46,18);
                 cout<<"8- "<< j[7] <<" AL FULL "<<endl;
                     }
                 if(j[8] > 0 && pFinal[8] == 0){
+                rlutil::locate(46,19);
                 cout<<"9- "<< j[8] <<" AL POKER "<<endl;
                     }
                 if(j[9] > 0 && pFinal[9] == 0){
+                rlutil::locate(46,20);
                 cout<<"10- "<< j[9] <<" A LA GENERALA "<<endl;
                     }
+                rlutil::locate(25,24);
+                cout<<"-----------------------------------------------------------------"<<endl;
+            rlutil::locate(70,10);
             cin>>opc4;
             switch(opc4){
                 case 1:
@@ -568,24 +601,36 @@ void RONDA(int d[], int tam, int j[], int pFinal[], bool testeo, bool &ganoParti
 
         case 2:
                 elegido = true;
+                rlutil::cls();
+                rlutil::locate(25,5);
+                cout<<"-----------------------------------------------------------------"<<endl;
+                rlutil::locate(46,10);
                 cout<<"ELIGA ANULACION: "<<endl;
                 for(i=0; i<6; i++){
                 if(pFinal[i] == 0){
+                rlutil::locate(46,11+i);
                 cout<<i+1<<"- "<< "ANULAR " <<i+1<<endl;
                     }
                 }
+                rlutil::locate(46,17);
                 if(pFinal[6] == 0){
                 cout<<"7- "<< "ANULAR ESCALERA "<<endl;
                     }
+                rlutil::locate(46,18);
                 if(pFinal[7] == 0){
                 cout<<"8- "<< "ANULAR FULL "<<endl;
                     }
+                rlutil::locate(46,19);
                 if(pFinal[8] == 0){
                 cout<<"9- "<< "ANULAR POKER "<<endl;
                     }
+                rlutil::locate(46,20);
                 if(pFinal[9] == 0){
                 cout<<"10-"<< "ANULAR GENERALA "<<endl;
                     }
+                rlutil::locate(25,24);
+                cout<<"-----------------------------------------------------------------"<<endl;
+            rlutil::locate(63,10);
             cin>>opc4;
             switch(opc4){
 
@@ -670,31 +715,46 @@ case 2:
     ponerCero(j,10);
     contTirada++;
     tiradasTotales++;
-    cout<<"CUANTOS DADOS VOLVES A TIRAR? :";
+    rlutil::locate(30,17);
+    cout<<"CUANTOS DADOS VOLVES A TIRAR? :\t\t\t\t";
+    rlutil::locate(30,18);
+    cout<<"\t\t\t\t\t\t";
+    rlutil::locate(30,19);
+    cout<<"\t\t\t\t\t\t";
+    rlutil::locate(62,17);
     cin>>cantDados;
     srand(time(NULL));
     cout<<endl;
     for (i = 0; i < cantDados; i++){
+        rlutil::locate(30,17+i);
         cout<<"ELIJA EL/LOS DADOS QUE QUIERE VOLVER A TIRAR: ";
         cin>>dadosR;
         if(testeo == false){
         d[dadosR-1]=(rand()%6)+1;
         }else{
-        cout<<"INGRESE NUMERO: ";
+        rlutil::locate(30,17+i);
+        cout<<"INGRESE NUMERO: \t\t\t\t\t\t";
+        rlutil::locate(46,17+i);
         cin>>d[dadosR-1];
+        cout<<"\t";
         }
     }
 
     rlutil::cls();
+    rlutil::locate(20,5);
     cout<<"TURNO DE ";
     mostrarNombre(vNombre);
-    cout<<" | RONDA N "<<rondas;
-    cout<<" | PUNTAJE TOTAL: "<<sumaPuntaje;
+    rlutil::locate(42,5);
+    cout<<" | RONDA N "<<rondas<<" |";
+    rlutil::locate(65,5);
+    cout<<"PUNTAJE TOTAL: "<<sumaPuntaje;
     cout<<endl;
-    cout<<"------------------------------------------------------"<<endl;
-    cout<<"TIRADA N "<<contTirada<<" - TIRADAS TOTALES: "<<tiradasTotales<<endl;
-    cout<<"------------------------------------------------------"<<endl;
-    ordenarVector(d, 5);
+    rlutil::locate(20,6);
+    cout<<"-----------------------------------------------------------------"<<endl;
+    rlutil::locate(20,7);
+    cout<<"TIRADA N *"<<contTirada<<"\t\t\t\t\tTIRADAS TOTALES: "<<tiradasTotales<<endl;
+    rlutil::locate(20,8);
+    cout<<"-----------------------------------------------------------------"<<endl;
     imprimirDados(d, 5);
 
 
@@ -762,7 +822,7 @@ case 2:
 }
 tiradasTotales++;
 rlutil::cls();
+sumaPuntaje = sumarVector(pFinal, 10);
 
 }
-
 #endif // FUNCIONES_H_INCLUDED

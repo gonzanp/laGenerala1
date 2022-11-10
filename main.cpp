@@ -14,29 +14,19 @@ using namespace std;
 #include "funciones.h"
 #include "funcionesGenerales.h"
 
-
-
 int main(){
-PlaySound(TEXT("game.wav"), NULL, SND_ASYNC);
 
-int opc, puntaje= 0, tiradas= 0, puntajeMax= 0, tiradasMax = 0;
+int puntaje= 0, tiradas= 0, puntajeMax= 0, tiradasMax = 0, y = 0;
 char ganador[30], ganadorMax[30];
-///rlutil::setBackgroundColor(rlutil::GREEN);
-
-int op = 1, y = 0;
-
-
+//PlaySound(TEXT("generala.wav"), NULL, SND_ASYNC);
+rlutil::setBackgroundColor(rlutil::GREEN);
 while(true){
-    ///rlutil::cls();
-    ///rlutil::setBackgroundColor(rlutil::BLACK);
-    ///rlutil::setColor(rlutil::WHITE);
+    rlutil::cls();
     rlutil::hidecursor();
-
     rlutil::locate(30,10);
-
     cout<<" JUEGO NUEVO DE A 1."<<endl;
     rlutil::locate(30,11);
-    cout<<" JUEGO NUEVO ENTRE 2."<<endl;
+    cout<<" JUEGO NUEVO ENTRE 2"<<endl;
     rlutil::locate(30,12);
     cout<<" MOSTRAR PUNTUACION MAS ALTA."<<endl;
     rlutil::locate(30,13);
@@ -49,7 +39,6 @@ while(true){
     cout<<(char)175 <<endl;
 
     int key = rlutil::getkey();
-    //cout<<key<<endl;
     switch(key){
         case 14: //arriba
             rlutil::locate(28,10 + y);
@@ -72,7 +61,6 @@ while(true){
                 case 0 :
                     rlutil::locate(30,11);
                     PARTIDA(ganador, puntaje, tiradas);
-
                     break;
                 case 1:
                     PARTIDA2(ganador, puntaje, tiradas);
@@ -84,65 +72,17 @@ while(true){
                         strcpy(ganadorMax,ganador);
                     }
                     rlutil::cls();
-                    rlutil::locate(20,5);
+                    rlutil::locate(20,12);
                     cout<<"EL JUGADOR: "<<ganadorMax<<" POSEE EL RECORD DE PUNTUACION CON UN TOTAL DE: "<<puntajeMax<<" PUNTOS, EN "<<tiradasMax<<" TIRADAS."<<endl;
-
                     rlutil::anykey();
                     rlutil::cls();
                     break;
                 case 3:
                     return 0;
-                    getch();
                     break;
-
-
             }
-
             break;
-
     }
+  }
 }
-}
-
-
-
-
-
-
-
-
-
-
-    /*
-
-    cout<<"1- JUEGO NUEVO DE A 1."<<endl<<
-    "2- JUEGO NUEVO ENTRE 2."<<endl<<
-    "3- MOSTRAR PUNTUACION MAS ALTA."<<endl<<
-    "4- SALIR."<<endl;
-    cin>>opc;
-    switch(opc){
-case 1:
-    PARTIDA(ganador, puntaje, tiradas);
-    break;
-case 2:
-    PARTIDA2(ganador, puntaje, tiradas);
-    break;
-case 3:
-    if(puntaje>puntajeMax){
-        puntajeMax = puntaje;
-        tiradasMax = tiradas;
-        strcpy(ganadorMax,ganador);
-        }
-        cout<<"EL JUGADOR: "<<ganadorMax<<" POSEE EL RECORD DE PUNTUACION CON UN TOTAL DE: "<<puntajeMax<<" PUNTOS, EN "<<tiradasMax<<" TIRADAS."<<endl;
-    rlutil::anykey();
-    break;
-case 4:
-    return 0;
-    break;
-default:
-    cout<<"- OPCION INCORRECTA -"<<endl;
-    rlutil::anykey();
-    }
-}
-}*/
 
