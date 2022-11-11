@@ -18,7 +18,7 @@ int main(){
 
 int puntaje= 0, tiradas= 0, puntajeMax= 0, tiradasMax = 0, y = 0;
 char ganador[30], ganadorMax[30];
-//PlaySound(TEXT("generala.wav"), NULL, SND_ASYNC);
+PlaySound(TEXT("generala.wav"), NULL, SND_ASYNC);
 rlutil::setBackgroundColor(rlutil::GREEN);
 while(true){
     rlutil::cls();
@@ -71,11 +71,21 @@ while(true){
                         tiradasMax = tiradas;
                         strcpy(ganadorMax,ganador);
                     }
+                    if(puntajeMax > 0){
                     rlutil::cls();
-                    rlutil::locate(20,12);
+                    cuadrado2();
+                    rlutil::locate(20,15);
                     cout<<"EL JUGADOR: "<<ganadorMax<<" POSEE EL RECORD DE PUNTUACION CON UN TOTAL DE: "<<puntajeMax<<" PUNTOS, EN "<<tiradasMax<<" TIRADAS."<<endl;
                     rlutil::anykey();
                     rlutil::cls();
+                    }else{
+                    rlutil::cls();
+                    cuadrado2();
+                    rlutil::locate(45,15);
+                    cout<<"NINGUN JUGADOR POSEE RECORD."<<endl;
+                    rlutil::anykey();
+                    rlutil::cls();
+                        }
                     break;
                 case 3:
                     return 0;
@@ -85,4 +95,3 @@ while(true){
     }
   }
 }
-

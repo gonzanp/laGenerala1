@@ -49,9 +49,39 @@ void asignarValores(); // asigna los valores de dados a puntajes de los distinto
 
 void imprimirDados();//imprime tirada de dados
 
+void cuadrado();
+                     //Dibujan la cuadricula
+void cuadrado2();
+
+
+
 
 
 /// Desarrollo de funciones / Definiciones
+
+void cuadrado(){
+int i;
+rlutil::locate(25,5);
+cout<<"-----------------------------------------------------------------"<<endl;
+for(i=1;i<19;i++){
+    rlutil::locate(24,5+i);
+    cout<<"|"<<endl;
+    }
+for(i=1;i<19;i++){
+    rlutil::locate(90,5+i);
+    cout<<"|"<<endl;
+    }
+ rlutil::locate(25,24);
+cout<<"-----------------------------------------------------------------"<<endl;
+}
+
+void cuadrado2(){
+rlutil::locate(10,10);
+cout<<"---------------------------------------------------------------------------------------------------------"<<endl;
+rlutil::locate(10,20);
+cout<<"---------------------------------------------------------------------------------------------------------"<<endl;
+}
+
 int posicionNumeroEnVector(int v[],int tam, int numero){
     int i;
     for(i=0;i<tam;i++){
@@ -388,10 +418,11 @@ void RONDA(int d[], int tam, int j[], int pFinal[], bool testeo, bool &ganoParti
     cout<<"TIRADA N *"<<contTirada<<"\t\t\t\t\tTIRADAS TOTALES: "<<tiradasTotales<<endl;
     rlutil::locate(20,8);
     cout<<"-----------------------------------------------------------------"<<endl;
-
+    ordenarVector(d, 5);
     imprimirDados(d, 5);
     }
     else{
+    ordenarVector(d, 5);
     imprimirDados(d, 5);
 
     }
@@ -493,8 +524,7 @@ void RONDA(int d[], int tam, int j[], int pFinal[], bool testeo, bool &ganoParti
             case 1:
                 elegido = true;
                 rlutil::cls();
-                rlutil::locate(25,5);
-                cout<<"-----------------------------------------------------------------"<<endl;
+                cuadrado();
                 rlutil::locate(46,10);
                 cout<<"Eliga opcion ganadora: "<<endl;
                 for(i=0; i<6; i++){
@@ -519,8 +549,6 @@ void RONDA(int d[], int tam, int j[], int pFinal[], bool testeo, bool &ganoParti
                 rlutil::locate(46,20);
                 cout<<"10- "<< j[9] <<" A LA GENERALA "<<endl;
                     }
-                rlutil::locate(25,24);
-                cout<<"-----------------------------------------------------------------"<<endl;
             rlutil::locate(70,10);
             cin>>opc4;
             switch(opc4){
@@ -602,8 +630,7 @@ void RONDA(int d[], int tam, int j[], int pFinal[], bool testeo, bool &ganoParti
         case 2:
                 elegido = true;
                 rlutil::cls();
-                rlutil::locate(25,5);
-                cout<<"-----------------------------------------------------------------"<<endl;
+                cuadrado();
                 rlutil::locate(46,10);
                 cout<<"ELIGA ANULACION: "<<endl;
                 for(i=0; i<6; i++){
@@ -628,8 +655,6 @@ void RONDA(int d[], int tam, int j[], int pFinal[], bool testeo, bool &ganoParti
                 if(pFinal[9] == 0){
                 cout<<"10-"<< "ANULAR GENERALA "<<endl;
                     }
-                rlutil::locate(25,24);
-                cout<<"-----------------------------------------------------------------"<<endl;
             rlutil::locate(63,10);
             cin>>opc4;
             switch(opc4){
@@ -755,6 +780,7 @@ case 2:
     cout<<"TIRADA N *"<<contTirada<<"\t\t\t\t\tTIRADAS TOTALES: "<<tiradasTotales<<endl;
     rlutil::locate(20,8);
     cout<<"-----------------------------------------------------------------"<<endl;
+    ordenarVector(d, 5);
     imprimirDados(d, 5);
 
 
