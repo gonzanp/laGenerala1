@@ -49,36 +49,27 @@ case 1:
     ordenarVector(dados, 5);
     RONDA(dados, 5, vPuntos, puntajeFinal, testeo, ganoPartida, manual, tiradas, rondas, nombre, sumaPuntaje, tiradasTotales);
     if((ganoPartida==false)&&(rondas<10)){
-    rlutil::locate(25,5);
-    cout<<"-----------------------------------------------------------------"<<endl;
+    cuadrado();
     rlutil::locate(48,13);
     cout<<"RONDA N "<<rondas<<endl;
     rlutil::locate(48,14);
     cout<<"PROXIMO TURNO:"<<nombre<<endl;
     rlutil::locate(48,16);
     cout<<"PUNTAJE "<<nombre<<": "<<sumaPuntaje<<endl;
-    rlutil::locate(25,24);
-    cout<<"-----------------------------------------------------------------"<<endl;
     rlutil::anykey();
         }
     }
     if(ganoPartida == true){
-    rlutil::locate(25,5);
-    cout<<"-----------------------------------------------------------------"<<endl;
-    rlutil::locate(10,13);
+    cuadrado2();
+    rlutil::locate(10,15);
     cout<<"FELICIDADES "<<nombre<<", OBTUVISTE GENERALA SERVIDA Y GANASTE CON UN PUNTAJE DE: "<<sumaPuntaje<<", CON UNOS TIROS TOTALES DE: "<<tiradasTotales<<endl;
-    rlutil::locate(25,24);
-    cout<<"-----------------------------------------------------------------"<<endl;
     rlutil::anykey();
     }
     if(rondas == 10){
     rlutil::cls();
-    rlutil::locate(25,5);
-    cout<<"-----------------------------------------------------------------"<<endl;
-    rlutil::locate(25,13);
+    cuadrado2();
+    rlutil::locate(20,15);
     cout<<"TERMINASTE LA PARTIDA "<<nombre<<" CON UN PUNTAJE DE: "<<sumaPuntaje<<", CON UNOS TIROS TOTALES DE: "<<tiradasTotales<<endl;
-    rlutil::locate(25,24);
-    cout<<"-----------------------------------------------------------------"<<endl;
     rlutil::anykey();
     }
     break;
@@ -90,35 +81,28 @@ case 2:
     manual=true;
     RONDA(dados, 5, vPuntos, puntajeFinal, testeo, ganoPartida, manual, tiradas, rondas, nombre, sumaPuntaje, tiradasTotales);
     if((ganoPartida==false)&&(rondas<10)){
-    rlutil::locate(25,5);
-    cout<<"-----------------------------------------------------------------"<<endl;
+    cuadrado();
     rlutil::locate(48,13);
     cout<<"RONDA N "<<rondas<<endl;
     rlutil::locate(48,14);
     cout<<"PROXIMO TURNO:"<<nombre<<endl;
     rlutil::locate(48,16);
     cout<<"PUNTAJE "<<nombre<<": "<<sumaPuntaje<<endl;
-    rlutil::locate(25,24);
-    cout<<"-----------------------------------------------------------------"<<endl;
     rlutil::anykey();
         }
     }
     if(ganoPartida == true){
-    rlutil::locate(25,5);
-    cout<<"-----------------------------------------------------------------"<<endl;
-    rlutil::locate(10,13);
+    rlutil::cls();
+    cuadrado2();
+    rlutil::locate(10,15);
     cout<<"FELICIDADES "<<nombre<<", OBTUVISTE GENERALA SERVIDA Y GANASTE CON UN PUNTAJE DE: "<<sumaPuntaje<<" CON UNOS TIROS TOTALES DE: "<<tiradasTotales<<endl;
-    rlutil::locate(25,24);
-    cout<<"-----------------------------------------------------------------"<<endl;
     rlutil::anykey();
     }
     if(rondas == 10){
-    rlutil::locate(25,5);
-    cout<<"-----------------------------------------------------------------"<<endl;
-    rlutil::locate(25,13);
+    rlutil::cls();
+    cuadrado2();
+    rlutil::locate(20,15);
     cout<<"TERMINASTE LA PARTIDA "<<nombre<<", CON UN PUNTAJE DE: "<<sumaPuntaje<<", CON UNOS TIROS TOTALES DE: "<<tiradasTotales<<endl;
-    rlutil::locate(25,24);
-    cout<<"-----------------------------------------------------------------"<<endl;
     rlutil::anykey();
     }
     break;
@@ -150,8 +134,7 @@ case 2:
     ordenarVector(dados, 5);
     RONDA(dados, 5, vPuntos, puntajeFinal, testeo, ganoPartida, manual, tiradas, rondas, vNombre, sumaPuntaje, tiradasTotales);
     if(rondas<=10){
-    rlutil::locate(25,5);
-    cout<<"-----------------------------------------------------------------"<<endl;
+    cuadrado();
      rlutil::locate(48,13);
     cout<<"RONDA N "<<rondas<<endl;
     rlutil::locate(48,14);
@@ -160,8 +143,6 @@ case 2:
     cout<<"PUNTAJE "<<vNombre<<": "<<sumaPuntaje<<endl;
     rlutil::locate(48,17);
     cout<<"PUNTAJE "<<vNombre2<<": "<<sumaPuntaje2<<endl;
-    rlutil::locate(25,24);
-    cout<<"-----------------------------------------------------------------"<<endl;
     rlutil::anykey();}
 
     ///jugador 2
@@ -169,8 +150,7 @@ case 2:
     ordenarVector(dados, 5);
     RONDA(dados, 5, vPuntos, puntajeFinal2, testeo, ganoPartida2, manual, tiradas, rondas, vNombre2, sumaPuntaje2, tiradasTotales2);
     if(rondas<10){
-    rlutil::locate(25,5);
-    cout<<"-----------------------------------------------------------------"<<endl;
+    cuadrado();
     rlutil::locate(48,13);
     cout<<"RONDA N "<<rondas<<endl;
     rlutil::locate(48,14);
@@ -179,8 +159,6 @@ case 2:
     cout<<"PUNTAJE "<<vNombre<<": "<<sumaPuntaje<<endl;
     rlutil::locate(48,17);
     cout<<"PUNTAJE "<<vNombre2<<": "<<sumaPuntaje2<<endl;
-    rlutil::locate(25,24);
-    cout<<"-----------------------------------------------------------------"<<endl;
     rlutil::anykey();
      }
     }
@@ -189,24 +167,18 @@ case 2:
 
     if(sumaPuntaje > sumaPuntaje2){
     rlutil::cls();
-    rlutil::locate(25,5);
-    cout<<"-----------------------------------------------------------------"<<endl;
-    rlutil::locate(22,13);
+    cuadrado2();
+    rlutil::locate(20,15);
     cout<<"EL GANADOR ES EL JUGADOR: "<<vNombre<<" CON UN PUNTAJE DE: "<<sumaPuntaje<<" CON UNOS TIROS TOTALES DE: "<<tiradasTotales<<endl;
-    rlutil::locate(25,21);
-    cout<<"-----------------------------------------------------------------"<<endl;
     puntos = sumaPuntaje;
     tiradasGanador = tiradasTotales;
     strcpy(nombre, vNombre);
     rlutil::anykey();
     }else{
     rlutil::cls();
-    rlutil::locate(25,5);
-    cout<<"-----------------------------------------------------------------"<<endl;
-    rlutil::locate(22,13);
+    cuadrado2();
+    rlutil::locate(20,15);
     cout<<"EL GANADOR ES EL JUGADOR: "<<vNombre2<<" CON UN PUNTAJE DE: "<<sumaPuntaje2<<" CON UNOS TIROS TOTALES DE: "<<tiradasTotales2<<endl;
-    rlutil::locate(25,21);
-    cout<<"-----------------------------------------------------------------"<<endl;
     puntos = sumaPuntaje2;
     tiradasGanador = tiradasTotales2;
     strcpy(nombre, vNombre2);
