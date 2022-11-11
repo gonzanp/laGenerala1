@@ -71,3 +71,35 @@
 
 1658017877 c:\users\gonzalo\desktop\new folder\desktop\lagenerala\proyectogenerala\lagenerala\funcionesgenerales.h
 
+1668054504 source:c:\users\gonzalo\desktop\la generala 2\lagenerala1\main.cpp
+	<iostream>
+	<stdlib.h>
+	<cstdlib>
+	<cstdio>
+	<ctime>
+	<conio.h>
+	"rlutil.h"
+	<cstring>
+	<windows.h>
+	<mmsystem.h>
+	"funciones.h"
+	"funcionesGenerales.h"
+
+1665494563 c:\users\gonzalo\desktop\la generala 2\lagenerala1\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1668054474 c:\users\gonzalo\desktop\la generala 2\lagenerala1\funciones.h
+
+1668054474 c:\users\gonzalo\desktop\la generala 2\lagenerala1\funcionesgenerales.h
+
